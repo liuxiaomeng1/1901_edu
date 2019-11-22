@@ -31,6 +31,8 @@ class HomeController extends Controller
 
     public function index()
     {
+        $class_id=$_GET['class_id'];
+        
         $data=DB::table('job')
             ->join('class','job.class_id','=','class.class_id')
             ->join('catalog','job.catalog_id','=','catalog.catalog_id')
