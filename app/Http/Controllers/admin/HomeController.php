@@ -23,7 +23,7 @@ class HomeController extends Controller
 
         $res=DB::table('job')->insert($data);
         if($res){
-            echo "<script>alert('作业添加完成');location.href='/home/index';</script>";
+            echo "<script>alert('作业添加完成');history.go(-2);</script>";
         }else{
             echo "<script>alert('请再试一遍');history.go(-1);</script>";
         }
@@ -32,11 +32,13 @@ class HomeController extends Controller
     public function index()
     {
         $class_id=$_GET['class_id'];
-        
+
         $data=DB::table('job')
+            ->where('job.class_id',$class_id)
             ->join('class','job.class_id','=','class.class_id')
             ->join('catalog','job.catalog_id','=','catalog.catalog_id')
             ->get();
-        return view('home/index',['data'=>$data]);
+        //dd($data);
+        return view('home/index',['data'=>$data],compact('class_id'));
     }
 }

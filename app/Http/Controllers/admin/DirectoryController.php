@@ -32,8 +32,11 @@ class DirectoryController extends Controller
         $data['video_url'] = $path;
 //        dd($data);
         $res = Directory::insert($data);
+        //dd($res);
         if($res){
-            echo "<script>alert('章节添加成功');location.href='/class/class_list;</script>";
+            echo "<script>alert('章节添加成功');history.go(-2);</script>";
+        }else{
+            echo "<script>history.go(-2);</script>";
         }
     }
 
@@ -55,6 +58,8 @@ class DirectoryController extends Controller
         $res = Directory::where('catalog_id',$catalog_id)->update(['is_del'=>1]);
         if($res){
             echo "<script>alert('删除成功');history.go(-1);</script>";
+        }else{
+            echo "<script>history.go(-1);</script>";
         }
     }
 

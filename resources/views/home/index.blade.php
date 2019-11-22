@@ -6,6 +6,7 @@
     <div class="page-content">
         <div class="content">
             <!-- 右侧内容框架，更改从这里开始 -->
+            <a href="{{url('home/add')}}?class_id={{$class_id}}">发布作业</a>
             <form class="layui-form xbs" action="" >
                 <div class="layui-form-pane" style="text-align: center;">
                     <div class="layui-form-item" style="display: inline-block;">

@@ -203,33 +203,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="list" >
-                    <a href="javascript:;">
-                        <i class="iconfont">&#xe6a3;</i>
-                        课程管理
-                        <i class="iconfont nav_right">&#xe697;</i>
-                    </a>
-                    <ul class="sub-menu" style="display:none">
-                        <li>
-                            <a href="./banner-list.html">
-                                <i class="iconfont">&#xe6a7;</i>
-                                课程添加
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/lect/directory_add">
-                                <i class="iconfont">&#xe6a7;</i>
-                                课程目录添加
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/lect/directory_list">
-                                <i class="iconfont">&#xe6a7;</i>
-                                课程目录列表
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
                 <li class="list" >
                     <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
@@ -254,7 +228,7 @@
                 <li class="list" >
                     <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
-                        作业管理
+                        用户管理
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
                     <ul class="sub-menu" style="display:none">
