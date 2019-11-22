@@ -98,7 +98,7 @@
                                 <i class="layui-icon">&#xe622;</i>
                             </a>
                             <a style="text-decoration:none"  onclick="member_password('作业','member-password.html','10001','600','400')"
-                               href="{{url('home/add')}}?class_id={{$v->class_id}}" title="作业">
+                               href="{{url('home/index')}}?class_id={{$v->class_id}}" title="作业">
                                 <i class="layui-icon">&#xe609;</i>
                             </a>
                         </td>
