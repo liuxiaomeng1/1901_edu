@@ -119,27 +119,27 @@
                     </ul>
                 </li>
 
-                <li class="list" >
-                    <a href="javascript:;">
-                        <i class="iconfont">&#xe6a3;</i>
-                        问答管理
-                        <i class="iconfont nav_right">&#xe697;</i>
-                    </a>
-                    <ul class="sub-menu" style="display:none">
-                        <li>
-                            <a href="/questions/questions">
-                                <i class="iconfont">&#xe6a7;</i>
-                                问题添加
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/questions/questions_list">
-                                <i class="iconfont">&#xe6a7;</i>
-                                问题列表
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                {{--<li class="list" >--}}
+                    {{--<a href="javascript:;">--}}
+                        {{--<i class="iconfont">&#xe6a3;</i>--}}
+                        {{--问答管理--}}
+                        {{--<i class="iconfont nav_right">&#xe697;</i>--}}
+                    {{--</a>--}}
+                    {{--<ul class="sub-menu" style="display:none">--}}
+                        {{--<li>--}}
+                            {{--<a href="/questions/questions">--}}
+                                {{--<i class="iconfont">&#xe6a7;</i>--}}
+                                {{--问题添加--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="/questions/questions_list">--}}
+                                {{--<i class="iconfont">&#xe6a7;</i>--}}
+                                {{--问题列表--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
                 <li class="list" >
                     <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>

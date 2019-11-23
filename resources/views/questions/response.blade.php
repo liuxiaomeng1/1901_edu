@@ -4,6 +4,7 @@
     @include('public/left')
 
     <form method="post" action="/questions/response_do?q_id={{$data['q_id']}}">
+        <input type="hidden" name="class_id" value="{{$class_id}}">
         <div class="layui-form-item">
             <label for="level-name" class="layui-form-label">
                 <span class="x-red">*</span>问题标题

@@ -7,7 +7,7 @@
         <div class="content">
             <!-- 右侧内容框架，更改从这里开始 -->
             <button class="layui-btn">
-                <a href="/questions/questions"><i class="layui-icon">&#xe608;</i>添加</a>
+                <a href="{{url('questions/questions')}}?class_id={{$class_id}}"><i class="layui-icon">&#xe608;</i>添加</a>
             </button>
             <table class="layui-table">
                 <thead>
@@ -15,7 +15,7 @@
                     <th>
                         <input type="checkbox" name="" value="">
                     </th>
-                    <th >问题编号</th>
+                    <th >用户名</th>
                     <th >问题标题</th>
                     <th>操作</th>
                 </tr>
@@ -26,12 +26,12 @@
                         <td>
                             <input type="checkbox" name="" value="">
                         </td>
-                        <td >{{$v->q_id}}</td>
+                        <td >{{$v->u_name}}</td>
                         <td >{{$v->q_title}}</td>
                         <td>
                             <a  class="btn btn-primary sub"  href="{{url('questions/del')}}?q_id={{$v->q_id}}" >删除</a>
                             <a  class=" btn btn-warning"  href="{{url('questions/edit')}}?q_id={{$v->q_id}}">修改</a>
-                            <a  class="btn btn-warning" href="{{url('questions/response')}}?q_id={{$v->q_id}}">回答</a>
+                            <a  class="btn btn-warning" href="{{url('questions/response')}}?q_id={{$v->q_id}}&class_id={{$v->class_id}}">回答</a>
                             <a  class="btn btn-warning" href="{{url('questions/response_list')}}?q_id={{$v->q_id}}">回答列表</a>
 
                         </td>

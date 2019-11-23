@@ -12,32 +12,38 @@ class QuestionController extends Controller
     //问答模块
     public function questions()
     {
-        return view('questions/questions');
+        $class_id = $_GET['class_id'];
+        return view('questions/questions',compact('class_id'));
     }
 
 
     public function questions_do(Request $request)
     {
         $data=$request->all();
-//        dd($data);
+       $data['q_time']=time();
+       $data['u_id']=0;
         if(empty($data['q_title'])){
-            echo "<script>alert('不能为空');location.href='/questions/questions';</script>";die;
+            echo "<script>alert('不能为空');history.go(-1);</script>";die;
         }
-        $res=DB::table('questions')->insert([
-            'q_title'=>$data['q_title'],
-            'q_time'=>time(),
-
-        ]);
+        $res=DB::table('questions')->insert($data);
         if($res){
-            echo "<script>alert('添加成功');location.href='/questions/questions_list';</script>";
+            echo "<script>alert('添加成功');location.href='/class/class_list';</script>";
         }
     }
 
 
     public function questions_list(Request $request)
     {
-        $res=DB::table('questions')->where('is_del',1)->get()->toArray();
-        return view('questions/questions_list',['res'=>$res]);
+        $class_id = $_GET['class_id'];
+        //dd($class_id);,
+        $res=DB::table('questions')
+            ->join('user_detail','questions.u_id','=','user_detail.u_id')
+            ->where('is_del',1)
+            ->where('class_id',$class_id)
+            ->get()
+            ->toArray();
+        //dd($res);
+        return view('questions/questions_list',['res'=>$res],compact('class_id'));
     }
 
 
@@ -77,24 +83,41 @@ class QuestionController extends Controller
     //回答模块
     public function  response(Request $request)
     {
+        $class_id = $_GET['class_id'];
         $data = json_decode(DB::table('questions')->where('q_id',$request->q_id)->get(),true)[0];
-        return view('questions/response',['data'=>$data]);
+        return view('questions/response',['data'=>$data],compact('class_id'));
     }
 
     public function response_do(Request $request)
     {
         $data = $request->all();
 //        dd($data);
-        $res = DB::table('response')->insert(['r_content'=>$data['r_content'],'q_id'=>$data['q_id'],'r_time'=>time()]);
+        $res = DB::table('response')->insert(['r_content'=>$data['r_content'],'q_id'=>$data['q_id'],'r_time'=>time(),'class_id'=>$data['class_id']]);
         if($res){
-            echo "<script>alert('已回答');location.href='/questions/questions_list';</script>";
+            echo "<script>alert('已回答');history.go(-2);</script>";
         }
     }
 
     public function response_list(Request $request)
     {
-        $data = json_decode(DB::table('response')->where('q_id',$request->q_id)->get(),true);
-//        dd($data);
+        $data = json_decode(DB::table('response')
+            ->join('user_detail','response.u_id','=','user_detail.u_id')
+            ->where('is_del',1)
+            ->where('q_id',$request->q_id)->get(),true);
+       //dd($data);
         return view('questions/response_list',['data'=>$data]);
+    }
+
+    //问题问答删除
+    public function response_del(Request $request)
+    {
+        $r_id=$request->all()['r_id'];
+       // dd($q_id);
+        $re=DB::table('response')->select('is_del')->where(['r_id'=>$r_id])->first();
+        if($re->is_del==1){
+            $data=DB::table('response')->where(['r_id'=>$r_id])->update(['is_del'=>0]);
+            if($data){
+                echo "<script>alert('删除成功');history.go(-1);</script>";}
+        }
     }
 }

@@ -11,7 +11,7 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">选择章节</label>
                         <div class="layui-input-inline">
-                            <select name="catalog_id">
+                            <select name="catalog_id9">
                                 @foreach($class as $vv)
                                     <optgroup label="{{$vv->class_name}}">
                                         @foreach($catalog as $v)

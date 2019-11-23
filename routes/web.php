@@ -174,6 +174,7 @@ Route::prefix('/questions')->group(function(){
     Route::any('response','admin\QuestionController@response');//问题回答页面
     Route::any('response_do','admin\QuestionController@response_do');//执行问题回答
     Route::any('response_list','admin\QuestionController@response_list');//问题回答列表
+    Route::any('response_del','admin\QuestionController@response_del');//问题回答删除
 });
 
 //课程目录模块
