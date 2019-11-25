@@ -46,16 +46,9 @@ Route::prefix('/class')->group(function(){
     //笔记
     route::any('create','class1\NoteController@create');
     route::any('store','class1\NoteController@store');
-    route::any('index','class1\NoteController@index');
+    route::any('note_index','class1\NoteController@index');
 
-    //讲师
-    Route::get('add','class1\LectController@create');//讲师添加
-    Route::any('index','class1\LectController@store');//处理讲师添加
-    Route::get('/list','class1\LectController@list');//讲师列表
-    Route::any('edit','class1\LectController@edit');//讲师修改
-    Route::any('update','class1\LectController@update');//讲师处理修改
-    Route::get('index_list','class1\LectController@index_list');//讲师列表
-    Route::any('destroy','class1\LectController@destroy');//讲师删除
+
 });
 
 //后台注册登录
@@ -107,21 +100,9 @@ Route::group(['middleware' => ['Login']], function () {
         Route::get('role_select', 'admin\admin@role_select');
         Route::get('right', 'admin\admin@right');
 
-        //讲师管理
-        Route::get('lecturer', 'admin\admin@lecturer');
 
-        //讲师视图
-        Route::any('lecturerAdd','admin\admin@lecturerAdd');
-        //讲师软删除
-        Route::any('del/{lect_id}','admin\admin@del');
     });
 
-//添加讲师
-    Route::any('lecturerAddhandel','admin\admin@lecturerAddhandel');
-//讲师展示
-    Route::any('lecturerIndex','admin\admin@lecturerIndex');
-    Route::get('admin_update', 'admin\admin@admin_update');
-    Route::post('admin_update_add', 'admin\admin@admin_update_add');
 
     /**
      *角色添加
@@ -185,5 +166,67 @@ Route::prefix('/lect')->group(function(){
     Route::any('directory_del','admin\DirectoryController@directory_del');//课程目录删除
     Route::any('audit','admin\DirectoryController@audit');//课程目录修改审核状态
 });
+//题库
+Route::prefix('/ltem')->group(function(){
+    Route::any('index_add','LtemController@index_add')->name('admin.ltem.index_add.index');
+    Route::any('bank_add','LtemController@bank_add')->name('admin.ltem.bank_add.index');
+    Route::any('warm_add','LtemController@warm_add')->name('admin.ltem.warm_add.index');
+    Route::any('lt_radio','LtemController@lt_radio')->name('admin.ltem.lt_radio.index');
+    Route::any('lt_warm','LtemController@lt_warm')->name('admin.ltem.lt_warm.index');
+    Route::any('lt_danger','LtemController@lt_danger')->name('admin.ltem.lt_danger.index');
+    Route::any('danger_add','LtemController@danger_add')->name('admin.ltem.danger_add.index');
+    Route::any('ltem_list','LtemController@ltem_list')->name('admin.ltem.ltem_list.index');
+    Route::any('lt_del','LtemController@lt_del')->name('admin.ltem.lt_del.index');
+    Route::any('lt_upd','LtemController@lt_upd')->name('admin.ltem.lt_upd.index');
+});
+//支付方式
+Route::prefix('/pay')->group(function() {
+    Route::any('pay_add','Pay\PayController@pay_add');//支付方式添加
+    Route::any('pay_add_do','Pay\PayController@pay_add_do');//支付方式添加执行
+    Route::any('pay_list','Pay\PayController@pay_list');//支付方式展示
+    Route::any('pay_del','Pay\PayController@pay_del');//支付方式删除
+    Route::any('pay_edit','Pay\PayController@pay_edit');//支付方式修改
+    Route::any('pay_edit_do','Pay\PayController@pay_edit_do');//支付方式修改执行
+});
+
+//购买课程
+Route::prefix('/buy')->group(function() {
+    Route::any('buy_class','Buy\BuyController@buy_class');//购买课程
+    Route::any('car','Buy\BuyController@car');//gouwuche
+    Route::any('buy_del','Buy\BuyController@buy_del');//删除
+    Route::any('buy_pay','Buy\BuyController@buy_pay');//购买
+    Route::any('buy_pay_do','Buy\BuyController@buy_pay_do');//购买
+
+});
+
+//会员模块
+Route::prefix('/user')->group(function(){
+    Route::any('user_list','admin\UserController@user_list');//会员列表
+    Route::any('card','admin\UserController@card');//会员修改状态
+    Route::any('index','admin\UserController@index');//会员修改状态
+    Route::any('index_do','admin\UserController@index_do');//会员修改状态
+});
+//导航栏
+Route::any('home', 'admin\admin@home'); //添加
+Route::any('home_do', 'admin\admin@home_do');   //添加执行
+Route::any('home_list', 'admin\admin@home_list');   //添加执行
+Route::any('home_del', 'admin\admin@home_del');   //删除
+
+
+//讲师管理
+Route::get('lecturer', 'admin\admin@lecturer');
+//讲师视图
+Route::any('lecturerAdd','admin\admin@lecturerAdd');
+//讲师软删除
+Route::any('del/{lect_id}','admin\admin@del');
+
+//添加讲师
+Route::any('lecturerAddhandel','admin\admin@lecturerAddhandel');
+//讲师展示
+Route::any('lecturerIndex','admin\admin@lecturerIndex');
+Route::get('admin_update', 'admin\admin@admin_update');
+Route::post('admin_update_add', 'admin\admin@admin_update_add');
+
+
 
 

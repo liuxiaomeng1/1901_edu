@@ -23,7 +23,7 @@
         <li class="layui-nav-item">
             <a href="javascript:;">admin</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
-                <dd><a href="">个人信息</a></dd>
+                <dd><a href="/user/index">用户信息</a></dd>
                 <dd><a href="">切换帐号</a></dd>
                 <dd><a href="{{url('/login')}}">退出</a></dd>
             </dl>
@@ -71,9 +71,7 @@
                         <li>
                             <a class="J_menuItem" href="{{url('/role')}}">角色管理</a>
                         </li>
-                    <!-- <li>
-                        <a class="J_menuItem" href="{{url('/lecturerIndex')}}">讲师管理</a>
-                     </li> -->
+
                     </ul>
                 </li>
                 <li class="list" >
@@ -119,27 +117,21 @@
                     </ul>
                 </li>
 
-                {{--<li class="list" >--}}
-                    {{--<a href="javascript:;">--}}
-                        {{--<i class="iconfont">&#xe6a3;</i>--}}
-                        {{--问答管理--}}
-                        {{--<i class="iconfont nav_right">&#xe697;</i>--}}
-                    {{--</a>--}}
-                    {{--<ul class="sub-menu" style="display:none">--}}
-                        {{--<li>--}}
-                            {{--<a href="/questions/questions">--}}
-                                {{--<i class="iconfont">&#xe6a7;</i>--}}
-                                {{--问题添加--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                            {{--<a href="/questions/questions_list">--}}
-                                {{--<i class="iconfont">&#xe6a7;</i>--}}
-                                {{--问题列表--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
+                <li class="list" >
+                    <a href=" ">
+                    <i class="iconfont">&#xe6a3;</i>
+                    会员管理
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu" style="display:none">
+                    <li>
+                        <a href="/user/user_list">
+                        <i class="iconfont">&#xe6a7;</i>
+                        课程目录列表
+                    </a>
+                    </li>
+                </ul>
+                </li>
                 <li class="list" >
                     <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
@@ -148,9 +140,9 @@
                     </a>
                     <ul class="sub-menu" style="display:none">
                         <li>
-                            <a href="/class/add">
+                            <a href="{{url('/lecturerIndex')}}">
                                 <i class="iconfont">&#xe6a7;</i>
-                                讲师添加
+                                讲师列表
                             </a>
                         </li>
                     </ul>

@@ -16,12 +16,12 @@ class NoteController extends Controller
     {
         $user = $request->session()->get('user');
         $u_id = $user['id'];
-        $course_id = $request->input('course_id');
+        $class_id = $request->input('class_id');
         $note_desc = $request->input('note_desc');
         $create_time = time();
         $data = Note::insert([
             'u_id' => $u_id,
-            'course_id' => $course_id,
+            'class_id' => $class_id,
             'note_desc' => $note_desc,
             'create_time' => $create_time
         ]);
@@ -29,7 +29,12 @@ class NoteController extends Controller
     }
     public function index()
     {
-        $data = Note::join('course','note.course_id','=','course.course_id')->where('note.is_del',1)->get();
+        $u_id = $_GET['u_id'];
+
+        $data = Note::join('class','note.class_id','=','class.class_id')
+            ->where('note.is_del',1)
+            ->where('u_id',$u_id)
+            ->get();
         return view('class.index',['data'=>$data]);
     }
 

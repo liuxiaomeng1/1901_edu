@@ -105,6 +105,11 @@
                                href="{{url('questions/questions_list')}}?class_id={{$v->class_id}}" title="问答">
                                 <i class="layui-icon">&#xe600;</i>
                             </a>
+                            <a style="text-decoration:none"  onclick="member_password('加入购物车','member-password.html','10001','600','400')"
+                               href="{{url('buy/buy_class')}}?class_id={{$v->class_id}}" title="加入购物车
+">
+                                <i class="layui-icon">&#xe639;</i>
+                            </a>
                         </td>
                     </tr>
                     @endforeach

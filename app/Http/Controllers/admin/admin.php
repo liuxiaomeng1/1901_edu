@@ -349,4 +349,68 @@ class admin extends Controller
             echo "<script>alert('删除失败');location='/lecturerIndex'</script>";die;
         }
     }
+
+
+    //导航栏
+    public function home()
+    {
+        // dd(11);
+        return view('/admin/home_add');
+    }
+
+
+
+    //导航栏添加执行
+    public function home_do(Request $request)
+    {
+        // dd(1);
+        $data = $request->except(['_token']);
+
+        $res = DB::table('nav')->insert($data);
+        //   dd($res);
+
+        if($res){
+            return redirect('/home_list');
+        }else{
+            return error('添加失败');
+        }
+    }
+
+
+
+    //导航栏列表
+    public function home_list(Request $request)
+    {
+        // dd(22);
+        $query = request()->all();
+        // dd($query);]
+
+        // $data = DB::table('nav')->get();
+        // dd($data);
+
+        //分页
+        $pageSize = 10;
+        // dd($pageSize);
+
+        $data = DB::table('nav')->paginate($pageSize);
+      //  dd($data);
+        return view('/admin/home_list',['data'=>$data]);
+
+    }
+
+    //导航栏删除
+    public function home_del()
+    {
+        $id=request()->nav_id;
+        // dd($id);
+        $res = DB::table('nav')->where('nav_id','=',$id)->delete();
+        // dd($res);
+        // $data = DB::table('nav')->where(['nav_id'=>$nav_id])->update(["is_del"=>0]);
+
+        if($res){
+            return redirect('/home_list');
+        }else{
+            return error('删除成功');
+        }
+    }
 }

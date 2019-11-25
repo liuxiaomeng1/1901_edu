@@ -17,34 +17,35 @@
             <table class="layui-table">
                 <thead>
                 <tr>
-                    <th>
-                        <input type="checkbox" name="" value="">
-                    </th>
-                    <th>
-                        用户id
-                    </th>
+
                     <th>
                         收藏夹名称
                     </th>
                     <th>
                         收藏夹数量
                     </th>
+                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($data as $v)
                 <tr>
-                    <td>
-                        <input type="checkbox" value="1" name="">
-                    </td>
-                    <td>
-                        {{$v->u_id}}
-                    </td>
+
                     <td>
                         {{$v->coll_name}}
                     </td>
                     <td >
                         {{$v->coll_num}}
+                    </td>
+                    <td class="td-manage"  >
+                        <a title="查看" href="{{url('collection/coll_index')}}?coll_id={{$v->coll_id}}&u_id={{$v->u_id}}" onclick="member_edit('查看','member-edit.html','4','','510')"
+                           class="ml-5" style="text-decoration:none">
+                            <i class="layui-icon">&#xe622;</i>
+                        </a>
+                        <a title="删除" href="{{url('collection/del')}}?coll_id={{$v->coll_id}}&u_id={{$v->u_id}}" onclick="member_edit('删除','member-edit.html','4','','510')"
+                           class="ml-5" style="text-decoration:none">
+                            <i class="layui-icon">&#xe622;</i>
+                        </a>
                     </td>
                 </tr>
                 @endforeach

@@ -24,7 +24,7 @@
         <tr>
 
                 <td>{{$v->note_id}}</td>
-                <td>{{$v->course_name}}</td>
+                <td>{{$v->class_name}}</td>
                 <td>{{$v->note_desc}}</td>
                 <td>{{date('Y-m-d h:i:s',$v->create_time)}}</td>
                 <td>

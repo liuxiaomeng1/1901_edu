@@ -35,9 +35,9 @@
 <!-- 中部开始 -->
 <div class="wrapper">
     <!-- 左侧菜单开始 -->
-@yield('content')
+    @yield('content')
 </div>
-    <!-- 左侧菜单结束 -->
+<!-- 左侧菜单结束 -->
 <!-- 背景切换开始 -->
 <div class="bg-changer">
     <div class="swiper-container changer-list">

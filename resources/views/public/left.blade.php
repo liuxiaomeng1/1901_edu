@@ -63,46 +63,46 @@
             <li class="list" >
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6a3;</i>
-                    收藏夹管理
+                    导航栏管理
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu" style="display:none">
                     <li>
-                        <a href="{{url('collection/index')}}">
+                        <a href="{{url('home')}}">
                             <i class="iconfont">&#xe6a7;</i>
-                            收藏夹列表
+                            添加导航栏
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('collection/coll_index')}}">
+                        <a href="{{url('/home_list')}}">
                             <i class="iconfont">&#xe6a7;</i>
-                            收藏详细列表
+                            导航栏列表
                         </a>
                     </li>
                 </ul>
             </li>
 
-            {{--<li class="list" >--}}
-                {{--<a href="javascript:;">--}}
-                    {{--<i class="iconfont">&#xe6a3;</i>--}}
-                    {{--问答管理--}}
-                    {{--<i class="iconfont nav_right">&#xe697;</i>--}}
-                {{--</a>--}}
-                {{--<ul class="sub-menu" style="display:none">--}}
-                    {{--<li>--}}
-                        {{--<a href="/questions/questions">--}}
-                            {{--<i class="iconfont">&#xe6a7;</i>--}}
-                            {{--问题添加--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="/questions/questions_list">--}}
-                            {{--<i class="iconfont">&#xe6a7;</i>--}}
-                            {{--问题列表--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
+            <li class="list" >
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6a3;</i>
+                    题库管理
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu" style="display:none">
+                    <li>
+                        <a href="/ltem/index_add">
+                            <i class="iconfont">&#xe6a7;</i>
+                            添加题库
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/ltem/ltem_list">
+                            <i class="iconfont">&#xe6a7;</i>
+                            问题列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="list" >
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6a3;</i>
@@ -111,7 +111,13 @@
                 </a>
                 <ul class="sub-menu" style="display:none">
                     <li>
-                        <a href="/class/add">
+                        <a href="{{url('/lecturerIndex')}}">
+                            <i class="iconfont">&#xe6a7;</i>
+                            讲师列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('/lecturerAdd')}}">
                             <i class="iconfont">&#xe6a7;</i>
                             讲师添加
                         </a>
@@ -188,6 +194,52 @@
                     </li>
                 </ul>
             </li>
+            <li class="list" >
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6a3;</i>
+                    订单管理
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu" style="display:none">
+                    <li>
+                        <a href="/pay/pay_add">
+                            <i class="iconfont">&#xe6a7;</i>
+                            添加支付方式
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/pay/pay_list">
+                            <i class="iconfont">&#xe6a7;</i>
+                            支付方式列表
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/buy/car">
+                            <i class="iconfont">&#xe6a7;</i>
+                            查看购物车
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="list" >
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6a3;</i>
+                    会员管理
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu" style="display:none">
+                    <li>
+                        <a href="/user/index">
+                            <i class="iconfont">&#xe6a7;</i>
+                            会员列表
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
 
         </ul>
     </div>

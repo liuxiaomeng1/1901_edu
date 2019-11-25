@@ -108,6 +108,7 @@
         <script>
             $(function ()
             {
+
                 $("#div1").hide();
                 $("#aaa").click(function () {
                    var a = $("input[name='is_free']:checked").val();

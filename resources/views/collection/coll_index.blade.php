@@ -21,14 +21,9 @@
                         <input type="checkbox" name="" value="">
                     </th>
                     <th>
-                        课程id
+                        课程
                     </th>
-                    <th>
-                        用户id
-                    </th>
-                    <th>
-                        收藏夹id
-                    </th>
+
                     <th>
                         添加时间
                     </th>
@@ -41,14 +36,9 @@
                             <input type="checkbox" value="1" name="">
                         </td>
                         <td>
-                            {{$v->class_id}}
+                            {{$v->class_name}}
                         </td>
-                        <td>
-                            {{$v->u_id}}
-                        </td>
-                        <td >
-                            {{$v->coll_id}}
-                        </td>
+
                         <td >
                             {{date('Y-m-d H:i:s',$v->create_time)}}
                         </td>
